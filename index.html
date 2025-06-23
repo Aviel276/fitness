@@ -8,8 +8,9 @@
 </head>
 <body>
     <header>
-        <h1>ברוכים הבאים לתוכנית האימונים האישית שלי</h1>
-        <img src="images\1.png" alt="אימון אישי" width="100px" height="100px"/>
+        <h1>אביאל עקריב- מאמן אונליין</h1>
+        <h2>המאמן שימריא איתך לגוף שתמיד חלמת</h2>
+        <img src="images/4.jpg" alt="אימון אישי" width="100px" height="100px" class="lightbox-img"/>
     </header>
     
     <section id="introduction">
@@ -42,24 +43,44 @@
     <section id="inside-look">
         <h2>מבט מבפנים</h2>
         <div class="inside-gallery">
-            <img src="images/inside1.jpg" alt="מבט מבפנים - תהליך האימונים" />
-            <img src="images/inside2.jpg" alt="מבט מבפנים - תהליך האימונים" />
-            <img src="images/inside3.jpg" alt="מבט מבפנים - תהליך האימונים" />
-            <img src="images/inside4.jpg" alt="מבט מבפנים - תהליך האימונים" />
+            <div class="inside-item">
+                <p class="inside-caption">העמוד הראשון של האפליקציה</p>
+                <div class="inside-img-box">
+                    <img src="images/app1.jpg" alt="מבט מבפנים - תהליך האימונים" class="lightbox-img" />
+                </div>
+            </div>
+            <div class="inside-item">
+                <p class="inside-caption">העמוד השני של האפליקציה</p>
+                <div class="inside-img-box">
+                    <img src="images/app2.jpg" alt="מבט מבפנים - תהליך האימונים" class="lightbox-img" />
+                </div>
+            </div>
+            <div class="inside-item">
+                <p class="inside-caption">העמוד השלישי של האפליקציה</p>
+                <div class="inside-img-box">
+                    <img src="images/app3.jpg" alt="מבט מבפנים - תהליך האימונים" class="lightbox-img" />
+                </div>
+            </div>
+            <div class="inside-item">
+                <p class="inside-caption">העמוד הרביעי של האפליקציה</p>
+                <div class="inside-img-box">
+                    <img src="images/app4.jpg" alt="מבט מבפנים - תהליך האימונים" class="lightbox-img" />
+                </div>
+            </div>
         </div>
     </section>
     <section id="testimonials">
         <h2>הודעות ממתאמנים</h2>
         <div class="testimonials-gallery">
-            <img src="images/review1.jpg" alt="המלצת מתאמן" />
-            <img src="images/review2.jpg" alt="המלצת מתאמן" />
-            <img src="images/review3.jpg" alt="המלצת מתאמן" />
-            <img src="images/review4.jpg" alt="המלצת מתאמן" />
-            <img src="images/review5.jpg" alt="המלצת מתאמן" />
-            <img src="images/review6.jpg" alt="המלצת מתאמן" />
-            <img src="images/review7.jpg" alt="המלצת מתאמן" />
-            <img src="images/review8.jpg" alt="המלצת מתאמן" />
-            <img src="images/review9.jpg" alt="המלצת מתאמן" />
+            <img src="images/review1.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review2.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review3.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review4.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review5.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review6.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review7.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review8.jpg" alt="המלצת מתאמן" class="lightbox-img" />
+            <img src="images/review9.jpg" alt="המלצת מתאמן" class="lightbox-img" />
 
         </div>
     </section>
@@ -90,25 +111,27 @@
     <img id="lightbox-img" src="" alt="המלצת מתאמן" />
 </div>
 <script>
-document.querySelectorAll('.testimonials-gallery img, .intro-gallery img').forEach(img => {
-    img.addEventListener('click', function() {
-        document.getElementById('lightbox-img').src = this.src;
-        document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.lightbox-img').forEach(img => {
+        img.addEventListener('click', function() {
+            document.getElementById('lightbox-img').src = this.src;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
     });
-});
-document.getElementById('lightbox-close').onclick = function() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.getElementById('lightbox-img').src = '';
-    document.body.style.overflow = '';
-};
-document.getElementById('lightbox').onclick = function(e) {
-    if (e.target === this) {
-        this.style.display = 'none';
+    document.getElementById('lightbox-close').onclick = function() {
+        document.getElementById('lightbox').style.display = 'none';
         document.getElementById('lightbox-img').src = '';
         document.body.style.overflow = '';
-    }
-};
+    };
+    document.getElementById('lightbox').onclick = function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+            document.getElementById('lightbox-img').src = '';
+            document.body.style.overflow = '';
+        }
+    };
+});
 </script>
 </body>
 </html>
