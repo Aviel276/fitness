@@ -394,8 +394,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    max-width: 90vw;
+    width: 200px;      /* היה 240px */
+    max-width: 90vw;   /* היה 95vw */
 }
 
 .inside-caption {
@@ -408,6 +408,7 @@ img {
     border-radius: 8px;
     box-shadow: 0 2px 8px #FFD70022;
     font-family: inherit;
+    max-width: 200px;  /* היה 240px */
     width: 100%;
     direction: rtl;
     font-weight: bold;
@@ -418,10 +419,10 @@ img {
     border: 3px solid #FFD700;
     border-radius: 18px;
     box-shadow: 0 0 24px #FFD70033;
-    width: 200px;
-    height: 340px;
-    max-width: 90vw;
-    max-height: 60vw;
+    width: 200px;      /* היה 240px */
+    height: 420px;     /* היה 380px */
+    max-width: 90vw;   /* היה 95vw */
+    max-height: 80vw;  /* היה 70vw */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,7 +433,7 @@ img {
 .inside-img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* במקום cover */
     border-radius: 12px;
     border: none;
     background: transparent;
@@ -495,6 +496,13 @@ img {
         height: 38vw;
         max-width: 110px;
         max-height: 110px;
+    }
+    .inside-item,
+    .inside-img-box {
+        width: 90vw;
+        height: 70vw;
+        max-width: 340px;
+        max-height: 260px;
     }
 }
 
