@@ -15,28 +15,82 @@ body {
 }
 
 header {
-    background: linear-gradient(90deg, #232323 60%, #FFD700 100%); /* היה #111 */
+    background: linear-gradient(120deg, #232323 60%, #FFD700 100%);
     color: #FFD700;
-    padding: 40px 0 20px 0;
+    padding: 64px 0 44px 0;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px 0 #FFD70022, 0 2px 24px #00000033;
+    position: relative;
+    overflow: hidden;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 340px;
+    background: radial-gradient(circle, #FFD70044 0%, #23232300 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 80px;
+    background: radial-gradient(ellipse, #FFD70022 0%, #23232300 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-weight: bold;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    color: #FFD700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 4px 24px #23232399, 0 2px 12px #FFD70033;
+}
+
+header h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 32px;
+    color: #fffbe6;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 12px #FFD70033;
 }
 
 header img {
     border-radius: 50%;
     border: 4px solid #FFD700;
-    margin-top: 20px;
+    margin-top: 0;
     background: #222;
-    box-shadow: 0 0 20px #FFD70044;
-    width: 100px;
-    height: 100px;
+    box-shadow: 0 0 32px #FFD70044, 0 0 0 8px #232323;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
     transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+    position: relative;
+    z-index: 1;
 }
 
 header img:hover {
     transform: scale(1.18) rotate(-2deg);
-    box-shadow: 0 8px 32px #FFD70077, 0 0 0 10px #FFD70033;
+    box-shadow: 0 8px 32px #FFD70077, 0 0 0 14px #FFD70033;
     z-index: 2;
 }
 
@@ -331,7 +385,7 @@ img {
 .inside-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 24px;
     justify-content: center;
     margin-top: 18px;
 }
@@ -340,25 +394,23 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 220px;
-    margin-bottom: 18px;
+    width: 200px;
+    max-width: 90vw;
 }
 
 .inside-caption {
     color: #FFD700;
-    font-size: 1.08em;
-    margin-bottom: 12px;
+    font-size: 1em;
+    margin-bottom: 10px;
     text-align: center;
     background: #232323;
-    padding: 12px 8px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px #FFD70022;
+    padding: 10px 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #FFD70022;
     font-family: inherit;
-    max-width: 220px;
-    direction: rtl;
     width: 100%;
+    direction: rtl;
     font-weight: bold;
-    letter-spacing: 0.01em;
 }
 
 .inside-img-box {
@@ -366,29 +418,28 @@ img {
     border: 3px solid #FFD700;
     border-radius: 18px;
     box-shadow: 0 0 24px #FFD70033;
-    padding: 18px;
+    width: 200px;
+    height: 340px;
+    max-width: 90vw;
+    max-height: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 220px;
-    height: 320px;
+    overflow: hidden;
     transition: box-shadow 0.2s;
 }
 
-.inside-img-box:hover {
-    box-shadow: 0 0 40px #FFD70077;
-}
-
 .inside-img-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
     border: none;
     background: transparent;
     box-shadow: none;
     padding: 0;
-    border-radius: 10px;
     transition: transform 0.22s cubic-bezier(.4,2,.6,1);
+    display: block;
 }
 
 .inside-img-box img:hover {
@@ -401,7 +452,29 @@ img {
         margin: 18px 0;
     }
     header {
-        padding: 24px 0 10px 0;
+        padding: 32px 0 18px 0;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header h2 {
+        font-size: 1.1em;
+    }
+    header img {
+        width: 80px;
+        height: 80px;
+    }
+    header::before {
+        width: 320px;
+        height: 180px;
+        top: -60px;
+    }
+    header::after {
+        width: 180px;
+        height: 40px;
+        bottom: -30px;
     }
     .intro-gallery {
         gap: 3vw;
